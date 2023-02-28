@@ -16,6 +16,9 @@ class Section
     #[ORM\Column(length: 255)]
     private ?string $nom_section = null;
 
+    #[ORM\ManyToOne(inversedBy: 'section')]
+    private ?Club $club = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -29,6 +32,18 @@ class Section
     public function setNomSection(string $nom_section): self
     {
         $this->nom_section = $nom_section;
+
+        return $this;
+    }
+
+    public function getClub(): ?Club
+    {
+        return $this->club;
+    }
+
+    public function setClub(?Club $club): self
+    {
+        $this->club = $club;
 
         return $this;
     }

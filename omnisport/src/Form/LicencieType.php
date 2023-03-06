@@ -2,9 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\Equipe;
 use App\Entity\Licencie;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class LicencieType extends AbstractType
@@ -14,6 +16,7 @@ class LicencieType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
+            ->add('equipe', EntityType::class, [ 'class' => Equipe::class, 'choice_label' => 'equipe_nom', ])
         ;
     }
 

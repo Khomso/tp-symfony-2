@@ -3,8 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Equipe;
+use App\Entity\Section;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EquipeType extends AbstractType
@@ -15,6 +17,7 @@ class EquipeType extends AbstractType
             ->add('nom_equipe')
             ->add('photo')
             ->add('dirigeant')
+            ->add('section', EntityType::class, [ 'class' => Section::class, 'choice_label' => 'club_nom', ])
         ;
     }
 

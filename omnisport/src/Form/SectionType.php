@@ -2,9 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\Club;
 use App\Entity\Section;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class SectionType extends AbstractType
@@ -13,6 +15,7 @@ class SectionType extends AbstractType
     {
         $builder
             ->add('nom_section')
+            ->add('club', EntityType::class, [ 'class' => Club::class, 'choice_label' => 'club_nom', ])
         ;
     }
 

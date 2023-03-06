@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Club;
 use App\Form\ClubType;
 use App\Repository\ClubRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,6 +22,7 @@ class ClubController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_USER')]
     #[Route('/new', name: 'app_club_new', methods: ['GET', 'POST'])]
     public function new(Request $request, ClubRepository $clubRepository): Response
     {

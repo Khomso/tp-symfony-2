@@ -20,7 +20,7 @@
             <tr>
                 <td>{{ equipe.id }}</td>
                 <td>{{ equipe.nomEquipe }}</td>
-                <td>{{ equipe.photo }}</td>
+                <td><img src="{{ asset('uploads/images/' ~ equipe.photo) }}" width="100"></td>
                 <td>{{ equipe.dirigeant }}</td>
                 <td>
                     <a href="{{ path('app_equipe_show', {'id': equipe.id}) }}">show</a>

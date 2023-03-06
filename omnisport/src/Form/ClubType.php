@@ -5,7 +5,9 @@ namespace App\Form;
 use App\Entity\Club;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class ClubType extends AbstractType
 {
@@ -15,8 +17,20 @@ class ClubType extends AbstractType
             ->add('nom_club')
             ->add('description')
             ->add('activite')
-            ->add('logo')
-        ;
+            ->add('logo', FileType::class, [
+                'label' => 'Photo du logo',
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '5000k',
+                        'mimeTypes' => [
+                            'image/*',
+                        ],
+                        'mimeTypesMessage' => 'Image trop lourde',
+                    ])
+                ],
+            ]);;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

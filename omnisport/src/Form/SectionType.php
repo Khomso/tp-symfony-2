@@ -15,7 +15,7 @@ class SectionType extends AbstractType
     {
         $builder
             ->add('nom_section')
-            ->add('club', EntityType::class, [ 'class' => Club::class, 'choice_label' => 'club_nom', ])
+            ->add('club', EntityType::class, [ 'class' => Club::class, 'choice_label' => 'nom_club', ])
         ;
     }
 

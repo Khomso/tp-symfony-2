@@ -16,7 +16,7 @@ class LicencieType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
-            ->add('equipe', EntityType::class, [ 'class' => Equipe::class, 'choice_label' => 'equipe_nom', ])
+            ->add('equipe', EntityType::class, [ 'class' => Equipe::class, 'choice_label' => 'nom_equipe', ])
         ;
     }
 

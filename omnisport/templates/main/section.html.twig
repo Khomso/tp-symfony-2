@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+{% block body %}
+<h1> Les sections du club</h1>
+{%for section in sections %}
+<h2> {{section.nomSection}}</h2>
+{%endfor%}
+{% endblock %}
